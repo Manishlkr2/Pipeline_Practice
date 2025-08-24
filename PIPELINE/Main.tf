@@ -39,18 +39,12 @@ resource "azurerm_storage_account" "ganshivstg" {
 
   
 }
-resource "azurerm_storage_account" "ganshivstg" {
-  name                     = "ganshhivstg1"
+resource "azurerm_storage_account" "ganshivstg2" {
+  name                     = "ganshhivstg4"
   resource_group_name      = azurerm_resource_group.Ganshiv2.name
   location                 = azurerm_resource_group.Ganshiv2.location
   account_tier             = "Standard"
   account_replication_type = "GRS"  
 }
 
-resource "azurerm_storage_account" "ganshivstg2" {
-  name                     = "ganshhivstg4"
-  resource_group_name      = azurerm_resource_group.Ganshiv.name
-  location                 = azurerm_resource_group.Ganshiv.location
-  account_tier             = "Standard"
-  account_replication_type = "GRS"  
-}
+
