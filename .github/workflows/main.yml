@@ -1,8 +1,8 @@
 name: "Manish_Runner"
 
 on: 
-    push: 
-         branches:
+  push: 
+    branches:
             - 'feature/**'
             - 'main'
             - 'hotfix/*'
