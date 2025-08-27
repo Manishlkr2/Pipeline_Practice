@@ -1,0 +1,18 @@
+name: "Manish_Runner"
+
+on: 
+    push: 
+         branches:
+            - 'feature/**'
+            - 'main'
+            - 'hotfix/*'
+jobs: 
+  ManishMaharaj: 
+    name: Manish Maharaj
+    runs-on: Manish_Runner
+    steps:
+    - name: Manish Maharaj rocks
+      run: echo Manish Maharaj  
+     
+
+
