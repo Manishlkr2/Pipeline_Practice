@@ -3,9 +3,9 @@ name: "Manish_Runner"
 on: 
   push: 
     branches:
-            - 'feature/**'
-            - 'main'
-            - 'hotfix/*'
+        - 'feature/**'
+        - 'main'
+        - 'hotfix/*'
 jobs: 
   ManishMaharaj: 
     name: Manish Maharaj
