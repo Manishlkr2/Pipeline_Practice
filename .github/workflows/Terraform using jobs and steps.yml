@@ -3,7 +3,7 @@ name: Terraform Manish_Infra
 on: push
 permissions: 
   id-token: write
-  contents: Read 
+  contents: read 
 
 jobs: 
   terraform-job:
