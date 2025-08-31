@@ -42,7 +42,7 @@ jobs:
         working-directory: PIPELINE
 
   Scannig_tool:
-    runs-on: ubantu-latest
+    runs-on: self-hosted
     needs: terraform-init-fmt
     steps: 
     - name: Checkout
