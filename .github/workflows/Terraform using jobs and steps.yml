@@ -43,7 +43,7 @@ jobs:
   terraform-init-pan: 
     runs-on: self-hosted
     needs: terraform-init-fmt
-    environment: production
+    environment: dev
   
     steps: 
     - name: Checkout
