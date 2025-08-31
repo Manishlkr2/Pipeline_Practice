@@ -40,11 +40,22 @@ jobs:
         id: validate
         run: terraform validate -no-color
         working-directory: PIPELINE
-      
 
-  terraform-init-pan: 
+  Scannig_tool:
     runs-on: self-hosted
     needs: terraform-init-fmt
+    steps: 
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+    - name: tfsec action
+      uses: aquasecurity/tfsec-action@v1.0.3
+       
+      with:
+       working_directory: PIPELINE
+       
+  terraform-init-pan: 
+    runs-on: self-hosted
+    needs: Scannig_tool
     environment: dev
   
     steps: 
