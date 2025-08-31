@@ -10,54 +10,65 @@ jobs:
   terraform-init-fmt:
     runs-on: self-hosted
     steps: 
-    - name: Checkout
-      uses: actions/checkout@v5.0.0
-    - name: Azure Login
-      uses: Azure/login@v2.3.0
-      with:
-         client-id: c3ecc675-b4f8-4735-b945-4eb4c53b2165
-         tenant-id: e0eb0b0e-a455-477c-b0e8-56b7f7f4efb4
-         subscription-id: 177b7e12-5f03-4f63-bcd1-ed6d1d776bff
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: c3ecc675-b4f8-4735-b945-4eb4c53b2165
+          tenant-id: e0eb0b0e-a455-477c-b0e8-56b7f7f4efb4
+          subscription-id: 177b7e12-5f03-4f63-bcd1-ed6d1d776bff
         
-    - name: Install Terraform
-      uses: little-core-labs/install-terraform@v2.0.0
-      with:
-        version: latest
+      - name: Install Terraform
+        uses: little-core-labs/install-terraform@v2.0.0
+        with:
+          version: latest
         
-    - name: Terraform fmt
-      id: fmt
-      run: terraform fmt -check
-      continue-on-error: true
-      working-directory: PIPELINE
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+        working-directory: PIPELINE
       
-    - name: Terraform Init
-      id: init
-      run: terraform init -input=false
-      working-directory: PIPELINE
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false
+        working-directory: PIPELINE
       
-    - name: Terraform Validate
-      id: validate
-      run: terraform validate -no-color
-      working-directory: PIPELINE
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+        working-directory: PIPELINE
       
+
   terraform-init-pan: 
     runs-on: self-hosted
     needs: terraform-init-fmt
     environment: dev
   
     steps: 
-    - name: Checkout
-      uses: actions/checkout@v5.0.0
-    
-    - name: Terraform Init
-      id: init
-      run: terraform init -input=false
-      working-directory: PIPELINE
-    - name: Terraform Plan
-      id: plan
-      run: terraform plan -no-color -input=false
-      continue-on-error: true
-      working-directory: PIPELINE
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: c3ecc675-b4f8-4735-b945-4eb4c53b2165
+          tenant-id: e0eb0b0e-a455-477c-b0e8-56b7f7f4efb4
+          subscription-id: 177b7e12-5f03-4f63-bcd1-ed6d1d776bff
+
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false
+        working-directory: PIPELINE
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -input=false
+        continue-on-error: true
+        working-directory: PIPELINE
+
                     
           
       
