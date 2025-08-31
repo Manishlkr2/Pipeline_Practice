@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "4.41.0"
     }
   }
@@ -16,9 +16,9 @@ terraform {
 
 
 provider "azurerm" {
-    features {}
-    subscription_id = "177b7e12-5f03-4f63-bcd1-ed6d1d776bff"
-   
+  features {}
+  subscription_id = "177b7e12-5f03-4f63-bcd1-ed6d1d776bff"
+
 }
 resource "azurerm_resource_group" "Ganshiv" {
   name     = "rg-Ganshiv"
@@ -37,14 +37,14 @@ resource "azurerm_storage_account" "ganshivstg" {
   account_tier             = "Standard"
   account_replication_type = "GRS"
 
-  
+
 }
 resource "azurerm_storage_account" "ganshivstg2" {
   name                     = "ganshhivstg4"
   resource_group_name      = azurerm_resource_group.Ganshiv2.name
   location                 = azurerm_resource_group.Ganshiv2.location
   account_tier             = "Standard"
-  account_replication_type = "GRS"  
+  account_replication_type = "GRS"
 }
 
 
