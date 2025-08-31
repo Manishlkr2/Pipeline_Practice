@@ -1,0 +1,19 @@
+name: Terraform Manish_Infra
+
+on: push
+
+jobs: 
+  terraform-job:
+    runs-on: Manish_Runner
+    steps: 
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+    - name: Install Terraform
+      uses: little-core-labs/install-terraform@v2.0.0
+      with:
+        version: latest
+          
+      
+     
+ 
+
