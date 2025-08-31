@@ -47,10 +47,9 @@ jobs:
     steps: 
     - name: Checkout
       uses: actions/checkout@v5.0.0
-    - name: Terraform security scan
-      uses: triat/terraform-security-scan@v3.1.0
-      with:
-        tfsec_actions_working_dir: PIPELINE
+    - name: Setup TFLint
+      uses:  terraform-linters/setup-tflint@v5.0.0
+      
        
   terraform-init-pan: 
     runs-on: self-hosted
