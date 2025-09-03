@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "Rg-Manish"
-    storage_account_name = "manishstg1"
-    container_name       = "manishcontainer"
-    key                  = "Manish.tfstate"
+    resource_group_name  = "Ganshiv-rg"
+    storage_account_name = "ganshivstg"
+    container_name       = "ganshivcontainer"
+    key                  = "Ganshiv.tfstate"
   }
 }
 
@@ -31,7 +31,7 @@ resource "azurerm_resource_group" "Ganshiv2" {
   location = "West Europe"
 }
 resource "azurerm_storage_account" "ganshivstg" {
-  name                     = "ganshhivstg1"
+  name                     = "ganshivstg1"
   resource_group_name      = azurerm_resource_group.Ganshiv.name
   location                 = azurerm_resource_group.Ganshiv.location
   account_tier             = "Standard"
@@ -40,7 +40,7 @@ resource "azurerm_storage_account" "ganshivstg" {
 
 }
 resource "azurerm_storage_account" "ganshivstg2" {
-  name                     = "ganshhivstg4"
+  name                     = "ganshivstg4"
   resource_group_name      = azurerm_resource_group.Ganshiv2.name
   location                 = azurerm_resource_group.Ganshiv2.location
   account_tier             = "Standard"
